@@ -13,7 +13,7 @@ This project was completed on a **Kali Linux virtual machine (VM)** using Virtua
 
 - **Kali Linux (VM)**
 - [Aircrack-ng](https://www.aircrack-ng.org/)
-- [`rockyou.txt`](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) dictionary
+- [rockyou.txt](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) dictionary
 - **Wireshark**: Used to inspect the handshake file and filter packets.
 
 ---
@@ -27,8 +27,8 @@ cd airgeddon
 sudo bash airgeddon.sh
 ```
 
-[airgeddon1](screenshots/airgeddon1.png)
-[airgeddon2](screenshots/airgeddon2.png)
+![airgeddon1](screenshots/airgeddon1.png)
+![airgeddon2](screenshots/airgeddon2.png)
 
 - On launch, since there was **no compatible WiFi interface**, I could not proceed with handshake capture.
 
@@ -45,14 +45,14 @@ To demonstrate the cracking step:
 1. I downloaded a [pre-captured handshake file](https://www.aircrack-ng.org/doku.php?id=wpa_capture)
    - File: wpa.full.cap
 
-[aircrack_site](screenshots/aircrack_site.png)
+![aircrack_site](screenshots/aircrack_site.png)
 
 2. Inspected the Handshake with Wireshark:
    - Opened wpa.full.cap in Wireshark.
    - Filtered for the eapol protocol to confirm the WPA2 handshake packets were present.
   
-[wireshark2](screenshots/wireshark2.png)
-[wireshark](screenshots/wireshark.png)
+![wireshark2](screenshots/wireshark2.png)
+![wireshark](screenshots/wireshark.png)
 
 3. Ran **Aircrack-ng** with the `rockyou.txt` dictionary:
 
@@ -60,13 +60,13 @@ To demonstrate the cracking step:
    aircrack-ng wpa.full.cap -w /usr/share/wordlists/rockyou.txt
    ```
 
-[cracking](screenshots/cracking.png)
+![cracking](screenshots/cracking.png)
 
 4.  **Password successfully recovered**:
    ```
    KEY FOUND! [ 44445555 ]
    ```
-[keyfound](screenshots/keyfound.png)
+![keyfound](screenshots/keyfound.png)
 
 ---
 
